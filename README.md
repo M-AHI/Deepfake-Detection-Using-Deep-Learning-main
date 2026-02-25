@@ -1,3 +1,206 @@
+# PROJECT REPORT
+
+## Deepfake Detection Using Deep Learning (ResNeXt and LSTM)
+
+---
+
+## 1. Abstract
+
+With the rapid advancement of artificial intelligence, deepfake videos have become increasingly realistic and pose serious threats to privacy, security, and digital trust. This project presents a deep learning–based approach for detecting deepfake videos using a hybrid architecture combining ResNeXt (CNN) and LSTM networks. The system extracts spatial features from video frames using transfer learning and models temporal dependencies using LSTM. A Django-based web application is developed to allow users to upload videos and obtain real-time predictions. The proposed system achieved an accuracy of up to **93.58%**, demonstrating the effectiveness of combining convolutional and recurrent neural networks for deepfake detection.
+
+---
+
+## 2. Introduction
+
+Deepfake technology uses deep learning techniques, especially GANs (Generative Adversarial Networks), to create manipulated videos that appear authentic. These fabricated videos can be misused for misinformation, fraud, identity theft, and defamation.
+
+The objective of this project is to design and implement an intelligent system capable of detecting whether a given video is real or manipulated (deepfake) using deep learning techniques.
+
+---
+
+## 3. Problem Statement
+
+To develop an automated deep learning–based system that:
+
+* Detects deepfake videos accurately.
+* Extracts meaningful spatial and temporal features from videos.
+* Provides a user-friendly interface for real-time prediction.
+
+---
+
+## 4. Objectives
+
+* To implement a deepfake detection model using transfer learning.
+* To combine ResNeXt (for spatial feature extraction) with LSTM (for temporal modeling).
+* To evaluate performance using multiple frame configurations.
+* To deploy the trained model using a Django web application.
+* To achieve high detection accuracy with optimized computational efficiency.
+
+---
+
+## 5. System Architecture
+
+The system consists of the following major components:
+
+### 5.1 Video Input
+
+User uploads a video through the Django web interface.
+
+### 5.2 Frame Extraction
+
+* The video is split into multiple frames.
+* Faces are detected and cropped from each frame.
+
+### 5.3 Feature Extraction (ResNeXt)
+
+* A pretrained ResNeXt CNN model is used.
+* Transfer learning is applied.
+* Spatial features are extracted from each frame.
+* Output: Feature vector representation.
+
+### 5.4 Temporal Modeling (LSTM)
+
+* Extracted feature vectors are passed to an LSTM network.
+* LSTM learns temporal dependencies between frames.
+* Final classification layer predicts:
+
+  * Real
+  * Fake
+
+### 5.5 Web Application Interface
+
+* Built using Django.
+* Allows video upload.
+* Displays prediction result with visual feedback.
+
+---
+
+## 6. Methodology
+
+### 6.1 Data Preprocessing
+
+* Frame extraction from videos.
+* Face detection and cropping.
+* Normalization and resizing of images.
+
+### 6.2 Model Design
+
+#### 6.2.1 ResNeXt (CNN)
+
+* Used as a feature extractor.
+* Pretrained on large datasets.
+* Removes final classification layer.
+* Outputs deep feature embeddings.
+
+#### 6.2.2 LSTM
+
+* Processes sequence of frame features.
+* Captures temporal patterns across frames.
+* Final dense layer for binary classification.
+
+### 6.3 Training Strategy
+
+* Transfer learning used for faster convergence.
+* Multiple experiments conducted with different numbers of frames:
+
+  * 10 frames
+  * 20 frames
+  * 40 frames
+  * 60 frames
+  * 80 frames
+  * 100 frames
+
+---
+
+## 7. Experimental Results
+
+| Model Name         | Frames Used | Accuracy (%) |
+| ------------------ | ----------- | ------------ |
+| Model (10 frames)  | 10          | 84.21        |
+| Model (20 frames)  | 20          | 87.79        |
+| Model (40 frames)  | 40          | 89.34        |
+| Model (60 frames)  | 60          | 90.59        |
+| Model (80 frames)  | 80          | 91.49        |
+| Model (100 frames) | 100         | **93.58**    |
+
+### Observation:
+
+* Increasing the number of frames improves accuracy.
+* Best performance achieved with 100 frames.
+* The combination of spatial and temporal learning significantly enhances detection performance.
+
+---
+
+## 8. Technologies Used
+
+* **Programming Language:** Python
+* **Deep Learning Framework:** PyTorch
+* **Backend Framework:** Django
+* **Frontend:** HTML, CSS, Bootstrap, JavaScript
+* **Database:** SQLite
+* **Model Architecture:** ResNeXt + LSTM
+* **Face Detection Models:** MTCNN, SSD Mobilenet, Tiny Face Detector
+
+---
+
+## 9. Web Application Features
+
+* Home page with project overview.
+* Video upload functionality.
+* Automatic frame extraction.
+* Face cropping and processing.
+* Real-time deepfake prediction.
+* Result visualization with clear classification output.
+
+---
+
+## 10. Advantages
+
+* High accuracy (up to 93.58%).
+* Efficient use of transfer learning.
+* Handles both spatial and temporal inconsistencies.
+* User-friendly web interface.
+* Scalable architecture.
+
+---
+
+## 11. Limitations
+
+* Performance depends on video quality.
+* Computationally intensive for high frame counts.
+* May require GPU acceleration for faster inference.
+* Limited robustness against highly sophisticated deepfakes.
+
+---
+
+## 12. Applications
+
+* Social media content verification.
+* News and media authentication.
+* Cybersecurity and digital forensics.
+* Law enforcement investigations.
+* Online identity verification systems.
+
+---
+
+## 13. Future Enhancements
+
+* Improve model robustness using larger datasets.
+* Integrate attention mechanisms.
+* Deploy using cloud services for scalability.
+* Optimize inference time.
+* Add explainable AI features to visualize manipulated regions.
+* Expand to audio deepfake detection.
+
+---
+
+## 14. Conclusion
+
+This project successfully implements a deepfake detection system using a hybrid deep learning approach combining ResNeXt and LSTM networks. The model effectively extracts spatial and temporal features from video frames and achieves a maximum accuracy of 93.58%. The integration of the trained model into a Django web application makes the solution practical and user-friendly. The results demonstrate that combining CNN and RNN architectures is highly effective for detecting manipulated videos.
+
+---
+
+                    
                     GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
